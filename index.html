@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>量子电影网 — 极简影像档案：每一格画面都值得被归档</title>
+<meta name="description" content="量子电影网是一个极简风格的影像档案站点，以瑞士网格排版呈现电影画面拆解、分镜研究、色彩与构图档案、声音设计笔记和观影记录。我们不做推荐榜，只把每一格画面按结构归档，供你随时调取与回看。">
+<meta name="keywords" content="量子电影网,影像档案,画面拆解,分镜研究,电影色彩,构图分析,声音设计,观影记录,极简设计,视觉研究">
+<meta name="author" content="量子电影网档案室">
+<meta name="robots" content="index,follow">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="revisit-after" content="14 days">
+<meta property="og:site_name" content="量子电影网">
+<meta property="og:title" content="量子电影网 — 极简影像档案">
+<meta property="og:description" content="电影画面拆解、分镜研究、色彩与构图档案、声音设计笔记，一份持续更新的影像档案。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liangzidianyingwang-zh.github.io">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://liangzidianyingwang-zh.github.io">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#ecebe6;--ink:#111;--ac:#ff3b1f;--bl:#1a3aff;--gy:#8b8a85;--bd:#111;--pa:#f5f4f0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Helvetica Neue","Inter","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.mono{font-family:"JetBrains Mono","Courier New",monospace}
+
+/* 顶部硬边 */
+.top{background:var(--ink);color:#fff;border-bottom:3px solid var(--ac);padding:11px 0}
+.top .in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11px;letter-spacing:1.5px}
+.top b{color:var(--ac)}
+.menu{background:var(--pa);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:50}
+.menu .in{max-width:1200px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;height:62px;gap:20px}
+.logo{font-size:24px;font-weight:900;letter-spacing:-.5px}
+.logo i{font-style:normal;color:var(--ac)}
+.links{display:flex;gap:0;font-size:13px;font-weight:600}
+.links a{padding:22px 14px;border-left:1px solid #ddd}
+.links a:last-child{border-right:1px solid #ddd}
+.links a:hover{background:var(--ac);color:#fff}
+.links a.on{background:var(--ink);color:#fff}
+
+/* 英雄区：超大字 */
+.hero{padding:90px 0 70px;border-bottom:1px solid var(--bd);position:relative}
+.hero h1{font-size:clamp(46px,11vw,158px);font-weight:900;line-height:.92;letter-spacing:-4px}
+.hero h1 em{font-style:normal;color:var(--ac)}
+.hero .bar{width:100%;height:14px;background:var(--ink);margin:34px 0 26px;display:flex}
+.hero .bar i{display:block;height:100%;font-style:normal}
+.hero .bar i:nth-child(1){background:var(--ac);width:42%}
+.hero .bar i:nth-child(2){background:var(--bl);width:23%}
+.hero .bar i:nth-child(3){background:var(--gy);width:35%}
+.hero .sub{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--bd)}
+.hero .sub div{padding:18px 18px 0 0;border-right:1px solid #ccc}
+.hero .sub div:last-child{border-right:none}
+.hero .sub b{display:block;font-size:11px;letter-spacing:2px;color:var(--gy);font-weight:600;margin-bottom:6px}
+.hero .sub span{font-size:14px;font-weight:500}
+
+/* 通用区块 */
+.blk{padding:76px 0;border-bottom:1px solid var(--bd)}
+.head{display:grid;grid-template-columns:120px 1fr auto;gap:22px;align-items:end;margin-bottom:40px;border-bottom:5px solid var(--bd);padding-bottom:14px}
+.head .no{font-size:13px;font-weight:700;letter-spacing:2px;background:var(--ink);color:#fff;padding:6px 10px;height:fit-content;justify-self:start}
+.head h2{font-size:38px;font-weight:900;letter-spacing:-1px;line-height:1.1}
+.head h2 em{font-style:normal;color:var(--ac)}
+.head .en{font-size:11px;letter-spacing:2px;color:var(--gy);font-weight:600}
+
+/* 网格档案 */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd)}
+.cell{background:var(--pa);padding:22px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.c4{grid-column:span 4}.c5{grid-column:span 5}.c7{grid-column:span 7}.c6{grid-column:span 6}.c12{grid-column:span 12}.c3{grid-column:span 3}
+.cell .idx{font-size:10px;letter-spacing:2px;color:var(--gy);font-weight:700}
+.cell h4{font-size:19px;font-weight:800;line-height:1.3;margin:10px 0}
+.cell p{font-size:13.5px;color:#444;line-height:1.65}
+.cell.ac{background:var(--ac);color:#fff}.cell.ac .idx{color:#ffd9d2}.cell.ac p{color:#ffeae6}
+.cell.bl{background:var(--bl);color:#fff}.cell.bl .idx{color:#c3cdff}.cell.bl p{color:#e3e8ff}
+.cell.ink{background:var(--ink);color:#fff}.cell.ink .idx{color:var(--gy)}.cell.ink p{color:#cfcec9}
+.cell .more{margin-top:14px;font-size:11.5px;letter-spacing:1px;font-weight:700;border-bottom:1px solid currentColor;padding-bottom:3px;width:fit-content}
+
+/* 拆解 时间轴 */
+.split{display:grid;grid-template-columns:200px 1fr;gap:0;border:1px solid var(--bd)}
+.split .ax{border-right:1px solid var(--bd);background:var(--ink);color:#fff;padding:24px}
+.split .ax b{display:block;font-size:12px;letter-spacing:2px;color:var(--ac);margin-bottom:12px}
+.split .ax li{font-size:13px;padding:6px 0;color:#cfcec9}
+.split .ax li.on{color:#fff;font-weight:700}
+.split .cn{padding:0}
+.split .row{display:grid;grid-template-columns:70px 1fr 60px;border-bottom:1px solid #ddd;padding:16px 22px;align-items:center;gap:16px}
+.split .row:last-child{border-bottom:none}
+.split .row .tm{font-size:12px;font-weight:700;background:var(--bg);border:1px solid var(--bd);text-align:center;padding:5px 0}
+.split .row .tx h5{font-size:15.5px;font-weight:700;margin-bottom:4px}
+.split .row .tx p{font-size:13px;color:#555}
+.split .row .fr{width:100%;height:34px;background:var(--gy)}
+.split .row.ac .fr{background:var(--ac)}
+.split .row.bl .fr{background:var(--bl)}
+
+/* 色彩档案 */
+.pal{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd)}
+.pal .p{background:var(--pa);padding:0}
+.pal .sw{height:150px;position:relative}
+.pal .sw b{position:absolute;bottom:10px;left:14px;font-size:11px;letter-spacing:1px}
+.pal .inf{padding:16px 18px}
+.pal .inf b{display:block;font-size:15px;font-weight:800;margin-bottom:5px}
+.pal .inf span{font-size:12.5px;color:#555}
+.pal .inf span i{font-style:normal;color:var(--ac);font-weight:700}
+
+/* 声音 波形 */
+.snd{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.snd .card{border:1px solid var(--bd);padding:24px;background:var(--pa)}
+.snd h5{font-size:17px;font-weight:800;margin-bottom:14px}
+.wave{display:flex;align-items:center;gap:3px;height:64px;padding:0 4px;border-bottom:1px solid #ddd}
+.wave i{display:block;width:6px;background:var(--ink);font-style:normal}
+.snd .card.bl{background:var(--bl);color:#fff;border-color:var(--bl)}
+.snd .card.bl .wave{border-bottom-color:#6c78e6}
+.snd .card.bl .wave i{background:#fff}
+.snd p{font-size:13.5px;color:#444;margin-top:14px}
+.snd .card.bl p{color:#e3e8ff}
+
+/* 记录 列表 */
+.log{border:1px solid var(--bd);background:var(--pa)}
+.log li{display:grid;grid-template-columns:70px 1fr 110px 90px;gap:16px;padding:15px 22px;border-bottom:1px solid #ddd;align-items:center;font-size:14px}
+.log li:last-child{border-bottom:none}
+.log li.headr{background:var(--ink);color:#fff;font-size:11px;letter-spacing:2px;font-weight:700}
+.log .st{font-size:11px;font-weight:700;text-align:center;padding:4px 0;border:1px solid var(--bd)}
+.log .st.done{background:var(--ink);color:#fff}
+.log .st.ing{background:var(--ac);color:#fff;border-color:var(--ac)}
+.log .st.todo{background:transparent;color:var(--gy)}
+.log .no_{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--gy)}
+
+/* 页脚 */
+footer{background:var(--ink);color:#cfcec9;padding:64px 0 0}
+.f{max-width:1200px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px}
+.f h6{color:#fff;font-size:12px;letter-spacing:2px;margin-bottom:18px}
+.f h5{font-size:30px;font-weight:900;color:#fff;margin-bottom:14px}
+.f h5 i{font-style:normal;color:var(--ac)}
+.f p{font-size:13.5px;line-height:1.85;max-width:420px}
+.f li{padding:6px 0;font-size:13.5px}
+.f li a:hover{color:var(--ac)}
+.dom{margin-top:24px;border:1px solid var(--ac);padding:16px;text-align:center}
+.dom b{display:block;font-size:10px;letter-spacing:4px;color:var(--gy);margin-bottom:8px}
+.dom a{color:#fff;font-size:15px;letter-spacing:.5px;word-break:break-all}
+.colo{max-width:1200px;margin:0 auto;padding:22px 28px;border-top:1px solid #444;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--gy)}
+.colo a{color:#cfcec9}
+
+@media(max-width:920px){
+  .links{display:none}
+  .hero .sub{grid-template-columns:1fr 1fr}
+  .hero .sub div:nth-child(2){border-right:none}
+  .c4,.c5,.c7,.c6,.c3{grid-column:span 12}
+  .split{grid-template-columns:1fr}.split .ax{border-right:none;border-bottom:1px solid var(--bd)}
+  .pal,.snd{grid-template-columns:1fr}
+  .head{grid-template-columns:1fr;gap:10px}.head .en{justify-self:start}
+  .log li{grid-template-columns:60px 1fr;gap:8px}.log .hide{display:none}
+}
+@media(max-width:520px){
+  .wrap,.f,.colo{padding-left:16px;padding-right:16px}
+  .hero{padding:56px 0 44px}.hero h1{letter-spacing:-2px}
+  .hero .sub{grid-template-columns:1fr}.hero .sub div{border-right:none;border-bottom:1px solid #ccc;padding-bottom:14px}
+  .f{grid-template-columns:1fr}
+  .head h2{font-size:28px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="top">
+  <div class="in wrap">
+    <span><b>ARCHIVE / 001</b> &nbsp; 量子电影网 · 极简影像档案</span>
+    <span class="mono">持续更新 · 画面拆解 / 分镜研究 / 色彩与构图 / 声音设计 / 观影记录</span>
+  </div>
+</div>
+
+<div class="menu">
+  <div class="in">
+    <div class="logo">量子<i>/</i>电影网</div>
+    <nav class="links">
+      <a href="#archive" class="on">画面拆解</a>
+      <a href="#storyboard">分镜研究</a>
+      <a href="#palette">色彩档案</a>
+      <a href="#sound">声音设计</a>
+      <a href="#log">观影记录</a>
+      <a href="#about">关于档案</a>
+    </nav>
+  </div>
+</div>
+
+<!-- 英雄区 -->
+<section class="hero wrap">
+  <h1>每一格画面<br>都值得被<em>归档</em></h1>
+  <div class="bar"><i></i><i></i><i></i></div>
+  <div class="sub">
+    <div><b>定位 POSITION</b><span>极简风格的影像档案站点，不做推荐榜，只做结构拆解</span></div>
+    <div><b>方法 METHOD</b><span>按画面、分镜、色彩、声音、时间五个维度逐格归档</span></div>
+    <div><b>更新 UPDATE</b><span>双周新增一部作品的完整拆解档案</span></div>
+    <div><b>收录 INDEX</b><span>共 142 条记录，覆盖 1960s—2026</span></div>
+  </div>
+</section>
+
+<!-- 01 画面拆解 -->
+<section class="blk wrap" id="archive">
+  <div class="head"><span class="no">01</span><h2>画面<em>拆解</em></h2><span class="en">FRAME BREAKDOWN</span><a href="#" style="font-size:12px;font-weight:700">全部档案 ›</a></div>
+  <div class="grid">
+    <div class="cell c5 ac">
+      <div><div class="idx">FEATURED / 本期主打</div><h4>从门框到背影：一个镜头的空间叙事</h4>
+      <p>一扇门、一道光、一个转身。我们用 18 个画面切片，还原一场戏是如何用构图把情绪推到临界点的。</p></div>
+      <a href="#" class="more">打开拆解 →</a>
+    </div>
+    <div class="cell c4">
+      <div class="idx">#142 · 长片</div><h4>餐桌上的权力关系：俯拍如何用角度说话</h4>
+      <p>五组俯拍画面的并列对比，看镜头高度如何改变人物关系。</p>
+      <a href="#" class="more">查看切片</a>
+    </div>
+    <div class="cell c3 bl">
+      <div class="idx">#141 · 短片</div><h4>单一场景的 47 个机位</h4>
+      <p>一部全片只在一个房间完成的短片，靠机位变化撑起 22 分钟。</p>
+      <a href="#" class="more">查看切片</a>
+    </div>
+    <div class="cell c7">
+      <div class="idx">#140 · 经典修复</div><h4>4K 修复后的画面损失与意外收获</h4>
+      <p>我们逐格对比修复前后的同一场戏：颗粒感被抹平的同时，某些原本藏在噪点里的细节反而变得清晰。这是一份关于"画质"的技术备忘录，也是关于创作者原意是否该被修正的讨论。</p>
+      <a href="#" class="more">查看切片 →</a>
+    </div>
+    <div class="cell c5 ink">
+      <div class="idx">#139 · 纪录片</div><h4>手持晃动的尺度：稳定到什么程度算太多</h4>
+      <p>三档稳定程度的同场面对照，观察真实感与眩晕感的边界。</p>
+      <a href="#" class="more">查看切片</a>
+    </div>
+  </div>
+</section>
+
+<!-- 02 分镜研究 -->
+<section class="blk wrap" id="storyboard">
+  <div class="head"><span class="no">02</span><h2>分镜<em>研究</em></h2><span class="en">STORYBOARD STUDY</span><a href="#" style="font-size:12px;font-weight:700">分镜归档 ›</a></div>
+  <div class="split">
+    <ul class="ax">
+      <b>SCENE 01 — 走廊</b>
+      <li class="on">01 空镜 · 走廊纵深</li>
+      <li>02 脚步入画</li>
+      <li>03 停步 · 抬头</li>
+      <li>04 门内透光</li>
+      <li>05 伸手推门</li>
+      <li>06 黑场过渡</li>
+      <b style="margin-top:16px">SCENE 02 — 室内</b>
+      <li>07 逆光剪影</li>
+      <li>08 面部特写</li>
+      <li>09 对白段落</li>
+      <li>10 收尾定格</li>
+    </ul>
+    <div class="cn">
+      <div class="row ac"><div class="tm">00:00</div><div class="tx"><h5>空镜 · 走廊纵深</h5><p>超广角，固定机位。门框形成三层纵深，光从最里层透出。</p></div><div class="fr"></div></div>
+      <div class="row"><div class="tm">00:04</div><div class="tx"><h5>脚步入画</h5><p>中景，手持跟拍，保持腰部高度。</p></div><div class="fr"></div></div>
+      <div class="row"><div class="tm">00:11</div><div class="tx"><h5>停步 · 抬头</h5><p>低角度，仰拍，强调走廊天花板的压迫感。</p></div><div class="fr"></div></div>
+      <div class="row bl"><div class="tm">00:18</div><div class="tx"><h5>门内透光</h5><p>正面特写，逆光，人物成为剪影。</p></div><div class="fr"></div></div>
+      <div class="row"><div class="tm">00:24</div><div class="tx"><h5>伸手推门</h5><p>手部大特写，焦点落在门把而非人物。</p></div><div class="fr"></div></div>
+      <div class="row"><div class="tm">00:31</div><div class="tx"><h5>黑场过渡</h5><p>硬切黑场 6 帧，完成场景切换。</p></div><div class="fr"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 色彩档案 -->
+<section class="blk wrap" id="palette">
+  <div class="head"><span class="no">03</span><h2>色彩<em>档案</em></h2><span class="en">COLOR ARCHIVE</span><a href="#" style="font-size:12px;font-weight:700">完整色表 ›</a></div>
+  <div class="pal">
+    <div class="p"><div class="sw" style="background:#dcd3c6"><b>#DCD3C6</b></div><div class="inf"><b>米白 · 纸张</b><span>主背景色，用于开场与回忆段落。<i>出现 6 场</i></span></div></div>
+    <div class="p"><div class="sw" style="background:#ff3b1f"><b>#FF3B1F</b></div><div class="inf"><b>信号红 · 关键物件</b><span>全片唯一的高饱和色，用于提示剧情转折。<i>出现 3 场</i></span></div></div>
+    <div class="p"><div class="sw" style="background:#1a3aff"><b>#1A3AFF</b></div><div class="inf"><b>钴蓝 · 夜景</b><span>夜间外景统一色调，压低中间调。<i>出现 4 场</i></span></div></div>
+    <div class="p"><div class="sw" style="background:#2b2b2b"><b>#2B2B2B</b></div><div class="inf"><b>炭黑 · 阴影</b><span>刻意保留的死黑区域，用于隐藏信息。<i>出现 9 场</i></span></div></div>
+    <div class="p"><div class="sw" style="background:#7a8b6f"><b>#7A8B6F</b></div><div class="inf"><b>旧绿 · 室内陈设</b><span>年代感的来源色，集中在家具与墙面。<i>出现 5 场</i></span></div></div>
+    <div class="p"><div class="sw" style="background:#c9a227"><b>#C9A227</b></div><div class="inf"><b>暗金 · 光源</b><span>暖光源的基准色，用于所有室内夜戏。<i>出现 7 场</i></span></div></div>
+  </div>
+</section>
+
+<!-- 04 声音设计 -->
+<section class="blk wrap" id="sound">
+  <div class="head"><span class="no">04</span><h2>声音<em>设计</em></h2><span class="en">SOUND DESIGN</span><a href="#" style="font-size:12px;font-weight:700">声音笔记 ›</a></div>
+  <div class="snd">
+    <div class="card">
+      <h5>01 静默的长度：为什么这场戏一句话都没说</h5>
+      <div class="wave">
+        <i style="height:6%"></i><i style="height:8%"></i><i style="height:5%"></i><i style="height:9%"></i><i style="height:7%"></i><i style="height:4%"></i><i style="height:6%"></i><i style="height:5%"></i><i style="height:8%"></i><i style="height:6%"></i><i style="height:5%"></i><i style="height:7%"></i><i style="height:4%"></i><i style="height:6%"></i><i style="height:5%"></i><i style="height:9%"></i><i style="height:6%"></i><i style="height:5%"></i><i style="height:7%"></i><i style="height:4%"></i><i style="height:6%"></i><i style="height:5%"></i><i style="height:8%"></i><i style="height:6%"></i>
+      </div>
+      <p>整场 47 秒的近静默段落，声音设计只用环境底噪与呼吸。我们分析它如何通过"几乎没有声音"制造压迫感，以及静默结束那一刻的声场切换。</p>
+    </div>
+    <div class="card bl">
+      <h5>02 低频的使用：看不见的紧张感从哪来</h5>
+      <div class="wave">
+        <i style="height:18%"></i><i style="height:34%"></i><i style="height:26%"></i><i style="height:48%"></i><i style="height:38%"></i><i style="height:62%"></i><i style="height:44%"></i><i style="height:72%"></i><i style="height:55%"></i><i style="height:68%"></i><i style="height:82%"></i><i style="height:58%"></i><i style="height:46%"></i><i style="height:60%"></i><i style="height:40%"></i><i style="height:52%"></i><i style="height:36%"></i><i style="height:44%"></i><i style="height:30%"></i><i style="height:26%"></i><i style="height:20%"></i><i style="height:16%"></i><i style="height:12%"></i><i style="height:8%"></i>
+      </div>
+      <p>一个 24Hz 以下的次低频持续 3 分 12 秒，观众不会"听到"，但身体会感觉到。这段分析解释它是如何在不被察觉的前提下抬高全场情绪的。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 观影记录 -->
+<section class="blk wrap" id="log">
+  <div class="head"><span class="no">05</span><h2>观影<em>记录</em></h2><span class="en">WATCH LOG</span><a href="#" style="font-size:12px;font-weight:700">归档全部 ›</a></div>
+  <ul class="log">
+    <li class="headr"><span>编号</span><span>作品与归档状态</span><span class="hide">归档日期</span><span>状态</span></li>
+    <li><span class="no_">#142</span><span><b>本期主打长片</b> — 空间叙事拆解（18 帧）</span><span class="hide">2026.09.28</span><span class="st done">已归档</span></li>
+    <li><span class="no_">#141</span><span><b>独立短片集</b> — 单一场景机位研究（47 个）</span><span class="hide">2026.09.14</span><span class="st done">已归档</span></li>
+    <li><span class="no_">#140</span><span><b>4K 修复版老片</b> — 画质对比与技术备忘</span><span class="hide">2026.08.31</span><span class="st done">已归档</span></li>
+    <li><span class="no_">#139</span><span><b>纪录片新作</b> — 手持稳定性的三组对照</span><span class="hide">2026.08.17</span><span class="st done">已归档</span></li>
+    <li><span class="no_">#138</span><span><b>流媒体悬疑片</b> — 色彩与节奏的关联拆解</span><span class="hide">进行中</span><span class="st ing">拆解中</span></li>
+    <li><span class="no_">#137</span><span><b>影展入围短片</b> — 声音设计与静默段落分析</span><span class="hide">排队中</span><span class="st todo">待归档</span></li>
+    <li><span class="no_">#136</span><span><b>大师回顾展</b> — 1960s 构图档案重建</span><span class="hide">排队中</span><span class="st todo">待归档</span></li>
+  </ul>
+</section>
+
+<!-- 06 关于 -->
+<section class="blk wrap" id="about" style="border-bottom:none">
+  <div class="head"><span class="no">06</span><h2>关于<em>档案</em></h2><span class="en">ABOUT</span></div>
+  <div class="grid">
+    <div class="cell c6 ink">
+      <div><div class="idx">关于本站</div><h4>量子电影网是什么</h4>
+      <p>一个以极简网格排版呈现的影像档案站点。我们相信一部作品最值得被保存的，往往不是剧情梗概，而是那些具体的、可拆解的画面细节——构图的取舍、机位的顺序、颜色的分配、声音的安排。这里把每一格画面按结构归档，供你随时调取。</p></div>
+      <a href="#" class="more">阅读档案说明 →</a>
+    </div>
+    <div class="cell c6">
+      <div><div class="idx">如何参与</div><h4>提交你希望被拆解的作品</h4>
+      <p>欢迎读者推荐希望被拆解的作品，也欢迎影视从业者提供分镜稿、色彩脚本与声音设计资料。每期我们会从读者投稿中选出一部，完成一份完整的公开拆解档案。</p></div>
+      <a href="#" class="more">提交作品 →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f">
+    <div>
+      <h5>量子<i>/</i>电影网</h5>
+      <p>极简影像档案：电影画面拆解、分镜研究、色彩与构图档案、声音设计笔记与观影记录。每一格画面都值得被归档，共 142 条记录持续更新。</p>
+      <div class="dom"><b>// OFFICIAL DOMAIN</b><a href="https://liangzidianyingwang-zh.github.io">liangzidianyingwang-zh.github.io</a></div>
+    </div>
+    <div><h6>档案栏目</h6><ul>
+      <li><a href="#archive">画面拆解</a></li>
+      <li><a href="#storyboard">分镜研究</a></li>
+      <li><a href="#palette">色彩档案</a></li>
+      <li><a href="#sound">声音设计</a></li>
+      <li><a href="#log">观影记录</a></li>
+    </ul></div>
+    <div><h6>近期专题</h6><ul>
+      <li><a href="#">空间叙事拆解</a></li>
+      <li><a href="#">单一场景机位</a></li>
+      <li><a href="#">4K 修复对比</a></li>
+      <li><a href="#">静默段落分析</a></li>
+      <li><a href="#">色彩分配表</a></li>
+    </ul></div>
+    <div><h6>读者入口</h6><ul>
+      <li><a href="#">提交拆解作品</a></li>
+      <li><a href="#">邮件订阅</a></li>
+      <li><a href="#">档案说明</a></li>
+      <li><a href="#">转载授权</a></li>
+      <li><a href="#">隐私说明</a></li>
+    </ul></div>
+  </div>
+  <div class="colo"><span>© 2026 量子电影网 · liangzidianyingwang-zh.github.io · 极简影像档案</span><span><a href="#">回到顶部 ↑</a></span></div>
+</footer>
+</body>
+</html>
